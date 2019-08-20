@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Input } from '@angular/core';
 
 @Component({
@@ -12,11 +12,13 @@ export class ProductsComponent implements OnInit {
   ];
 
   @Input() products = [
-    { 'name': 'TV', 'description': 'Details of televions' },
-    { 'name': 'DVD Player', 'description': 'Details of DVD Player' },
-    { 'name': 'iPhone', 'description': 'Details of iPhone' },
-    { 'name': 'CD Player', 'description': 'Details of CD Player' },
+    { 'name': 'TV', 'description': 'Details of televions', 'price': 2000.20 },
+    { 'name': 'DVD Player', 'description': 'Details of DVD Player', 'price': 800.30 },
+    { 'name': 'iPhone', 'description': 'Details of iPhone', 'price': 7000.99 },
+    { 'name': 'CD Player', 'description': 'Details of CD Player', 'price': 500.10 },
   ];
+  
+  @Output() products2 = this.products;
 
   constructor() { }
 
@@ -24,7 +26,11 @@ export class ProductsComponent implements OnInit {
   }
 
   share() {
-    
+    window.alert('The product has been shared!')
+  }
+
+  onNotify() {
+    window.alert('You will be notified when the product goes on sale')
   }
 
 }

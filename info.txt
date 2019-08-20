@@ -1,3 +1,5 @@
 https://www.primefaces.org/primeng/#/setup
 
 https://cli.angular.io/
+https://angular.io/start
+https://angular.io/cli/generate
