@@ -14,15 +14,18 @@ export class StocksComponent implements OnInit {
     { 'id': 4, 'name': 'ENGIE ON', 'code': 'EGIE3' },
   ];
 
-  @Input() showDetail = false;
+  @Input() showDetail: boolean = false;
+  
+  @Input() theStock = { 'id': 0, 'name': '-', 'code': '-' };
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  showDetailStock() {
+  showDetailStock(value: number) {
     this.showDetail = true;
+    this.theStock = { 'id': value, 'name': 'Itaú Unibanco ON '+value, 'code': 'ITUB3 '+value }
   }
 
 }
