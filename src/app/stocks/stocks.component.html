@@ -1,14 +1,15 @@
 <p>Choose the stock</p>
 
 <div>
-    <select name="opstocks" id="opstocks" (change)="showDetailStock(this.value)">
-        <option *ngFor="let stock of stocks" [value]="stock.id">
+    <select (change)="showDetailStock()" [(ngModel)]="idStock">
+        <option *ngFor="let stock of stocks" value="{{ stock.id }}">
             {{ stock.code }} - {{ stock.name }}
         </option>
     </select>
 </div>
 
+
 <br><hr>
 
-<app-stock-detail *ngIf="showDetail" [theStock]="theStock">
+<app-stock-detail [hidden]="hideDetail" [theStock]="theStock">
 </app-stock-detail>

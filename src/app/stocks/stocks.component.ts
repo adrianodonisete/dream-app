@@ -7,25 +7,27 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class StocksComponent implements OnInit {
   @Input() stocks = [
-    { 'id': 0, 'name': 'Itaú Unibanco ON', 'code': 'ITUB3' },
-    { 'id': 1, 'name': 'AMBEV ON', 'code': 'ABEV3' },
-    { 'id': 2, 'name': 'Grendene ON', 'code': 'GRND3' },
-    { 'id': 3, 'name': 'WEG ON', 'code': 'WEGE3' },
-    { 'id': 4, 'name': 'ENGIE ON', 'code': 'EGIE3' },
+    { 'id': '0', 'name': 'Itaú Unibanco ON', 'code': 'ITUB3' },
+    { 'id': '1', 'name': 'AMBEV ON', 'code': 'ABEV3' },
+    { 'id': '2', 'name': 'Grendene ON', 'code': 'GRND3' },
+    { 'id': '3', 'name': 'WEG ON', 'code': 'WEGE3' },
+    { 'id': '4', 'name': 'ENGIE ON', 'code': 'EGIE3' },
   ];
 
-  @Input() showDetail: boolean = false;
+  @Input() hideDetail: boolean = true;
   
-  @Input() theStock = { 'id': 0, 'name': '-', 'code': '-' };
+  @Input() theStock = { 'id': '0', 'name': '-', 'code': '-' };
+
+  public idStock: string;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  showDetailStock(value: number) {
-    this.showDetail = true;
-    this.theStock = { 'id': value, 'name': 'Itaú Unibanco ON '+value, 'code': 'ITUB3 '+value }
+  showDetailStock() {
+    this.hideDetail = false;
+    this.theStock = { 'id': this.idStock, 'name': 'Itaú Unibanco ON '+this.idStock, 'code': 'ITUB3 '+this.idStock }
   }
 
 }
