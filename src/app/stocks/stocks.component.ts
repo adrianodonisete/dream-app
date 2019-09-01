@@ -27,7 +27,7 @@ export class StocksComponent implements OnInit {
 
   showDetailStock() {
     this.hideDetail = false;
-    this.theStock = { 'id': this.idStock, 'name': 'Itaú Unibanco ON '+this.idStock, 'code': 'ITUB3 '+this.idStock }
+    this.theStock = this.stocks[this.idStock];
   }
 
 }
